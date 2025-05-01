@@ -30,8 +30,9 @@
 ## תרשימי ERD ו-DSD
 
 להלן תרשימי ה-Entity Relationship Diagram ו-Data Structure Diagram עבור מודול המשתמשים:
-https://github.com/IshaiZigdon/212474449_214221210_DBproject/blob/main/ERD.png
-https://github.com/IshaiZigdon/212474449_214221210_DBproject/blob/main/DSD.png
+![הרצת שאילתה 1](screenshots/DSD.png)
+
+![תוצאות שאילתה 1](screenshots/ERD.png)
 \
 
 
