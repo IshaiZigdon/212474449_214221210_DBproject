@@ -30,7 +30,8 @@
 ## תרשימי ERD ו-DSD
 
 להלן תרשימי ה-Entity Relationship Diagram ו-Data Structure Diagram עבור מודול המשתמשים:
-
+https://github.com/IshaiZigdon/212474449_214221210_DBproject/blob/main/ERD.png
+https://github.com/IshaiZigdon/212474449_214221210_DBproject/blob/main/DSD.png
 \
 
 
@@ -52,9 +53,9 @@
 ## שיטות הכנסת נתונים
 
 1. **טעינת CSV באמצעות ****`COPY FROM`****:**
-   - צילום מסך של הרצת הפקודה ב-psql.
+   [- צילום מסך של הרצת הפקודה ב-psql.](https://github.com/IshaiZigdon/212474449_214221210_DBproject/blob/main/screenshots/Screenshot%202025-04-18%20090339.png)
 2. **סקריפט Python לאוטומציה:**
-   - צילום מסך של סקריפט רץ וטעינת הקובץ.
+   [- צילום מסך של סקריפט רץ וטעינת הקובץ.](https://github.com/IshaiZigdon/212474449_214221210_DBproject/blob/main/screenshots/Screenshot%202025-04-18%20093811.png)
 3. **פקודות ****`INSERT`****:**
    - צילום מסך של הוספה ידנית ב-SQL client.
 
@@ -123,6 +124,4 @@
    ![Transaction Run](screenshots/tx_run.png)  
 5. **צילום מצב בסיס הנתונים אחרי הפעולה:**  
    ![After Transaction](screenshots/tx_after.png)
-
-*בהצלחה בהגשה!*
 
