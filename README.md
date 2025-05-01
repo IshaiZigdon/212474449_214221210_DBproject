@@ -53,7 +53,7 @@ https://github.com/IshaiZigdon/212474449_214221210_DBproject/blob/main/DSD.png
 ## שיטות הכנסת נתונים
 
 1. **טעינת CSV באמצעות ****`COPY FROM`****:**
-   [- צילום מסך של הרצת הפקודה ב-psql.](https://github.com/IshaiZigdon/212474449_214221210_DBproject/blob/main/screenshots/Screenshot%202025-04-18%20090339.png)
+   [- צילום מסך של הרצת הפקודה ב-psql.](screenshots/Screenshot%202025-04-18%20090339.png)
 2. **סקריפט Python לאוטומציה:**
    [- צילום מסך של סקריפט רץ וטעינת הקובץ.](https://github.com/IshaiZigdon/212474449_214221210_DBproject/blob/main/screenshots/Screenshot%202025-04-18%20093811.png)
 3. **פקודות ****`INSERT`****:**
