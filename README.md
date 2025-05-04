@@ -30,9 +30,9 @@
 ## תרשימי ERD ו-DSD
 
 להלן תרשימי ה-Entity Relationship Diagram ו-Data Structure Diagram עבור מודול המשתמשים:
-![הרצת שאילתה 1](screenshots/DSD.png)
+!(screenshots/DSD.png)
 
-![תוצאות שאילתה 1](screenshots/ERD.png)
+!(screenshots/ERD.png)
 \
 
 
