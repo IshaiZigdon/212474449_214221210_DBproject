@@ -99,66 +99,86 @@
 2. **צילום מסך של מצב בסיס הנתונים לפני השינוי** (תצוגת טבלה).
 
 **DELETE**
+
 **1**
+
 ![Watch history before delete](screenshots/history_before_del.png)
 
 **2**
+
 ![Watch List before delete](screenshots/watchlist_before_del.png)
 
 **3**
+
 ![Profile Prefrences before delete](screenshots/pp_before_del.png)
 
 3. **צילום מסך של הרצת השאילתה**.
 **1**
+
 ![Watch history while delete](screenshots/history_while_del.png)
 
 **2**
+
 ![Watch List while delete](screenshots/watchlist_while_del.png)
 
 **3**
+
 ![Profile Prefrences before delete](screenshots/pp_while_del.png)
 
 4. **צילום מסך של מצב בסיס הנתונים אחרי השינוי**.
 **1**
+
 ![Watch history after delete](screenshots/history_after_del.png)
 
 **2**
+
 ![Watch List after delete](screenshots/watchlist_after_del.png)
 
 **3**
+
 ![Profile Prefrences after delete](screenshots/pp_after_del.png)
 
 **UPDATE**
+
 **צילום מסך של מצב בסיס הנתונים לפני השינוי** (תצוגת טבלה).
 
 **1**
+
 ![active accounts before delete](screenshots/active_b_upt.png)
 
 **2**
+
 ![Basic Subscriptions before delete](screenshots/basic_b_upd.png)
 
 **3**
+
 ![Lower case content before delete](screenshots/lower_b_upd.png)
 **צילום מסך של הרצת השאילתה**.
 
 **1**
+
 ![Active Accounts while delete](screenshots/active_upd.png)
 
 **2**
+
 ![Basic Subscriptions while delete](screenshots/basic_upd.png)
 
 **3**
+
 ![Lower case content while delete](screenshots/lower_upd.png)
 
  **צילום מסך של מצב בסיס הנתונים אחרי השינוי**.
 
 **1**
+
 ![Active Accounts after delete](screenshots/active_a_upd.png)
 
 **2**
+
 ![Basic Subscriptions after delete](screenshots/basic_a_upd.png)
 
 **3**
+
 ![Lower case content after delete](screenshots/lower_a_upd.png)
 ### אילוצים (Constraints)
 
