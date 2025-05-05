@@ -98,16 +98,40 @@
 1. **תיאור בעברית:** שאילתת DELETE או UPDATE זו מבצעת את הפעולה הנחוצה (מחיקה או עדכון) בטבלה הנכונה, כדי להבטיח עקביות ותקינות בנתונים; למשל, מחיקת רשומות לא תקניות מתוך `profile_preferences` או עדכון סטטוס של מנוי שפג תוקפו.
 2. **צילום מסך של מצב בסיס הנתונים לפני השינוי** (תצוגת טבלה).
 
+**DELETE**
+
+![Watch history before delete](screenshots/history_before_del.png)
 
 ![Watch List before delete](screenshots/watchlist_before_del.png)
 
+![Profile Prefrences before delete](screenshots/pp_before_del.png)
+
 3. **צילום מסך של הרצת השאילתה**.
+![Watch history while delete](screenshots/history_while_del.png)
 
 ![Watch List while delete](screenshots/watchlist_while_del.png)
 
+![Profile Prefrences before delete](screenshots/pp_while_del.png)
+
 4. **צילום מסך של מצב בסיס הנתונים אחרי השינוי**.
+![Watch history after delete](screenshots/history_after_del.png)
 
 ![Watch List after delete](screenshots/watchlist_after_del.png)
+
+![Profile Prefrences after delete](screenshots/pp_after_del.png)
+2. **צילום מסך של מצב בסיס הנתונים לפני השינוי** (תצוגת טבלה).
+
+**UPDATE**
+
+![active accounts before delete](screenshots/active_b_upd.png)
+
+3. **צילום מסך של הרצת השאילתה**.
+
+![Wactive accounts while delete](screenshots/active_upd.png)
+
+4. **צילום מסך של מצב בסיס הנתונים אחרי השינוי**.
+
+![active accounts after delete](screenshots/active_a_upd.png)
 
 ### אילוצים (Constraints)
 
