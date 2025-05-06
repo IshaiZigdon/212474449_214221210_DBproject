@@ -71,140 +71,108 @@
 ## חלק ב׳: תיעוד ביצוע שאילתות ושינויים
 
 ### שאילתות SELECT
-עבור כל שאילתת SELECT יש לכלול כותרת, תיאור מלא ורווח לתמונות:
 
 1. **חיפוש משתמשים עם יותר מ-2 פרופילים**  
-   - **תיאור בעברית:** שאילתה זו מאתרת משתמשים המחוברים ללפחות שלושה פרופילים שונים, מציגה את מזהה המשתמש, שמו, ארצו ומספר הפרופילים שלהם. שימוש בשאילתה מסייע בזיהוי משתמשים שמנצלים את הפלטפורמה ביותר מפרופיל אחד לצורך התאמה אישית.
+   - **תיאור:** שאילתה זו מאתרת משתמשים המחוברים ללפחות שלושה פרופילים שונים, מציגה את מזהה המשתמש, שמו, ארצו ומספר הפרופילים שלהם. שימוש בשאילתה מסייע בזיהוי משתמשים שמנצלים את הפלטפורמה ביותר מפרופיל אחד לצורך התאמה אישית.
 
 ![query 1](screenshots/query_1.png)
 
 2. **סדרות/סרטים שצפו בהם ב-2024**  
-   - **תיאור בעברית:** מביאה פרטי צפייה עבור כל צפייה שבוצעה בשנת 2024, כולל שם הפרופיל, תאריך הצפייה, שם התוכן והדירוג שהוענק. שימוש במידע מאפשר ניתוח מגמות צפייה עונתיות.
+   - **תיאור:** מביאה פרטי צפייה עבור כל צפייה שבוצעה בשנת 2024, כולל שם הפרופיל, תאריך הצפייה, שם התוכן והדירוג שהוענק. שימוש במידע מאפשר ניתוח מגמות צפייה עונתיות.
 
 ![query 2](screenshots/query_2.png)
 
  
 3. **ממוצע דירוג לכל פרופיל עם ממוצע ≥ 8**  
-   - **תיאור בעברית:** מחשבת את ממוצע הדירוגים לכל פרופיל ומחזירה רק פרופילים עם דירוג ממוצע של שמונה ומעלה. מאפשר לזהות פרופילים עם חווית צפייה חיובית למטרות שיווק.
+   - **תיאור:** מחשבת את ממוצע הדירוגים לכל פרופיל ומחזירה רק פרופילים עם דירוג ממוצע של שמונה ומעלה. מאפשר לזהות פרופילים עם חווית צפייה חיובית למטרות שיווק.
 
 ![query 3](screenshots/query_3.png)
   
 4. **משתמשים עם מנוי פעיל מתחילת השנה**  
-   - **תיאור בעברית:** שולפת משתמשים שמצב מנויים שלהם פעיל מאז תחילת השנה, כולל סוג התוכנית ותאריך תחילת המנוי. עוזרת לעקוב אחר שמירת משתמשים (retention).
+   - **תיאור:** שולפת משתמשים שמצב מנויים שלהם פעיל מאז תחילת השנה, כולל סוג התוכנית ותאריך תחילת המנוי. עוזרת לעקוב אחר שמירת משתמשים (retention).
 
 ![query 4](screenshots/query_4.png)
   
 5. **תכנים ב-watch_list שלא נצפו**  
-   - **תיאור בעברית:** מאתרת תכנים שהוסיף הפרופיל לרשימת צפייה אך עדיין לא נצפו, כולל תאריך הוספה. מאפשרת תזכורות והמלצות משלימות לצפייה. 
+   - **תיאור:** מאתרת תכנים שהוסיף הפרופיל לרשימת צפייה אך עדיין לא נצפו, כולל תאריך הוספה. מאפשרת תזכורות והמלצות משלימות לצפייה. 
 
 ![query 5](screenshots/query_5.png)
 
 6. **פילוח פרופילים לפי חודש ושנה של יצירתם**  
-   - **תיאור בעברית:** מסכמת כמות פרופילים שנוצרו בכל חודש ושנה, לחקר צמיחה חודשית של השירות. 
+   - **תיאור:** מסכמת כמות פרופילים שנוצרו בכל חודש ושנה, לחקר צמיחה חודשית של השירות. 
 
 ![query 6](screenshots/query_6.png)
  
 7. **ספירת פרופילים לפי שפות מועדפות**  
-   - **תיאור בעברית:** מחשבת כמה פרופילים בחרו כל שפה כהעדפה, עוזר לתעדוף ממשק משתמש לפי שפה.
+   - **תיאור:** מחשבת כמה פרופילים בחרו כל שפה כהעדפה, עוזר לתעדוף ממשק משתמש לפי שפה.
 
 ![query 7](screenshots/query_7.png)
   
 8. **5 התכנים הפופולריים ביותר**  
-   - **תיאור בעברית:** מוצאת חמשת התכנים עם מספר הצפיות הגבוה ביותר, לרשימות Top5 ולקמפיינים שיווקיים.
+   - **תיאור:** מוצאת חמשת התכנים עם מספר הצפיות הגבוה ביותר, לרשימות Top5 ולקמפיינים שיווקיים.
 
 ![query 8](screenshots/query_8.png)
   
 
-### שאילתות DELETE ו-UPDATE ו-UPDATE ו-UPDATE
+### שאילתות DELETE ו-UPDATE
 
-ו-UPDATE
-עבור כל שאילתת DELETE ו-UPDATE שבקובץ `Queries.sql` יש לכלול בדו"ח:
 
-1. **תיאור בעברית:** שאילתת DELETE או UPDATE זו מבצעת את הפעולה הנחוצה (מחיקה או עדכון) בטבלה הנכונה, כדי להבטיח עקביות ותקינות בנתונים; למשל, מחיקת רשומות לא תקניות מתוך `profile_preferences` או עדכון סטטוס של מנוי שפג תוקפו.
-2. **צילום מסך של מצב בסיס הנתונים לפני השינוי** (תצוגת טבלה).
 
 **DELETE**
 
 **1**
-
+**צילום מסך של מצב בסיס הנתונים לפני השינוי**
 ![Watch history before delete](screenshots/history_before_del.png)
-
-**2**
-
-![Watch List before delete](screenshots/watchlist_before_del.png)
-
-**3**
-
-![Profile Prefrences before delete](screenshots/pp_before_del.png)
-
-3. **צילום מסך של הרצת השאילתה**.
-**1**
-
+**צילום מסך של הרצת השאילתה**
 ![Watch history while delete](screenshots/history_while_del.png)
-
-**2**
-
-![Watch List while delete](screenshots/watchlist_while_del.png)
-
-**3**
-
-![Profile Prefrences before delete](screenshots/pp_while_del.png)
-
-4. **צילום מסך של מצב בסיס הנתונים אחרי השינוי**.
-**1**
-
+**צילום מסך של מצב בסיס הנתונים אחרי השינוי**
 ![Watch history after delete](screenshots/history_after_del.png)
 
 **2**
-
+**צילום מסך של מצב בסיס הנתונים לפני השינוי**
+![Watch List before delete](screenshots/watchlist_before_del.png)
+**צילום מסך של הרצת השאילתה**
+![Watch List while delete](screenshots/watchlist_while_del.png)
+**צילום מסך של מצב בסיס הנתונים אחרי השינוי**
 ![Watch List after delete](screenshots/watchlist_after_del.png)
 
 **3**
-
+**צילום מסך של מצב בסיס הנתונים לפני השינוי**
+![Profile Prefrences before delete](screenshots/pp_before_del.png)
+**צילום מסך של הרצת השאילתה**
+![Profile Prefrences before delete](screenshots/pp_while_del.png)
+**צילום מסך של מצב בסיס הנתונים אחרי השינוי**
 ![Profile Prefrences after delete](screenshots/pp_after_del.png)
+
 
 **UPDATE**
 
-**צילום מסך של מצב בסיס הנתונים לפני השינוי** (תצוגת טבלה).
-
 **1**
-
+**צילום מסך של מצב בסיס הנתונים לפני השינוי** 
 ![active accounts before delete](screenshots/active_b_upt.png)
-
-**2**
-
-![Basic Subscriptions before delete](screenshots/basic_b_upd.png)
-
-**3**
-
-![Lower case content before delete](screenshots/lower_b_upd.png)
-**צילום מסך של הרצת השאילתה**.
-
-**1**
-
+**צילום מסך של הרצת השאילתה**
 ![Active Accounts while delete](screenshots/active_upd.png)
-
-**2**
-
-![Basic Subscriptions while delete](screenshots/basic_upd.png)
-
-**3**
-
-![Lower case content while delete](screenshots/lower_upd.png)
-
- **צילום מסך של מצב בסיס הנתונים אחרי השינוי**.
-
-**1**
-
+ **צילום מסך של מצב בסיס הנתונים אחרי השינוי**
 ![Active Accounts after delete](screenshots/active_a_upd.png)
 
 **2**
-
+**צילום מסך של מצב בסיס הנתונים לפני השינוי** 
+![Basic Subscriptions before delete](screenshots/basic_b_upd.png)
+**צילום מסך של הרצת השאילתה**
+![Basic Subscriptions while delete](screenshots/basic_upd.png)
+ **צילום מסך של מצב בסיס הנתונים אחרי השינוי**
 ![Basic Subscriptions after delete](screenshots/basic_a_upd.png)
 
-**3**
 
+**3**
+**צילום מסך של מצב בסיס הנתונים לפני השינוי** 
+![Lower case content before delete](screenshots/lower_b_upd.png)
+**צילום מסך של הרצת השאילתה**
+![Lower case content while delete](screenshots/lower_upd.png)
+ **צילום מסך של מצב בסיס הנתונים אחרי השינוי**
 ![Lower case content after delete](screenshots/lower_a_upd.png)
+
+
 ### אילוצים (Constraints)
 
 עבור כל אילוץ שבקובץ `Constraints.sql` יש:
@@ -217,6 +185,8 @@
 3. **ניסיון ליצירת נתון שסותר את האילוץ** וצילום השגיאה המתקבלת.
 
 ![constrain 3](constrain_3.png)
+
+
 ### דוגמאות ROLLBACK ו-COMMIT
 עבור הדוגמאות שבקובץ `RollbackCommit.sql` יש להראות:
 1. **תיאור קצר בעברית (ROLLBACK):** ביטול כל השינויים בטרנזקציה וחזרה למצב הקודם.
