@@ -216,13 +216,17 @@
 
 ### אילוצים (Constraints)
 
-**:1**
+**1:**
 **הפיכת COUNTRY בUSERS ל NOT NULL** 
 
    ![constrain 1](screenshots/constrain_1.png)
+
+**2:**
    
 **הוספת בדיקה ש age_rating ב profiles האו בין 0 ל18** 
    ![constrain 2](screenshots/constrain_2.png)
+
+**3:**
    
 **ערך ברירת מחדל ל status ב subsciptions** 
    ![constrain 3](screenshots/const_3.png)
