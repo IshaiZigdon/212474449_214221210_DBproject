@@ -222,9 +222,9 @@
 1. **תיאור קצר בעברית (ROLLBACK):** ביטול כל השינויים בטרנזקציה וחזרה למצב הקודם.
 2. **תיאור קצר בעברית (COMMIT):** שמירת כל השינויים שבוצעו בטרנזקציה לצמיתות.
 3. **צילום מצב בסיס הנתונים לפני הפעולה:**  
-   ![Before Transaction](screenshots/tx_before.png)  
+   ![Before Transaction](screenshots/rollback_1.png)  
 4. **צילום מסך של הרצת הפקודה:**  
-   ![Transaction Run](screenshots/tx_run.png)  
+   ![Transaction Run](screenshots/rollback_2.png)  
 5. **צילום מצב בסיס הנתונים אחרי הפעולה:**  
-   ![After Transaction](screenshots/tx_after.png)
+   ![After Transaction](screenshots/rollback_3.png)
 
