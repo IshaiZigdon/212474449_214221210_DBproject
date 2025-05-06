@@ -234,7 +234,7 @@
 
 ### דוגמאות ROLLBACK ו-COMMIT
 
-1. **ROLLBACK:** 
+ **ROLLBACK:** 
 הפכנו את המדינה של המשתמש עם ID=5 ממקסיקו ל unknown ואחרי זה עשינו rollback.
 
 1. **צילום מצב בסיס הנתונים לפני הפעולה:**  
@@ -244,7 +244,7 @@
 3. **צילום מצב בסיס הנתונים אחרי ROLLBACK:**  
    ![After Transaction](screenshots/rollback_3.png)
 
-2. **COMMIT:**
+ **COMMIT:**
 הפכנו את המדינה של המשתמש עם ID=5 ממקסיקו ל Israel ואחרי זה עשינו commit
 
 1. **צילום מצב בסיס הנתונים לפני הפעולה:**  
