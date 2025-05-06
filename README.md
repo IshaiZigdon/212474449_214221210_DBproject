@@ -216,9 +216,8 @@
 
 ### אילוצים (Constraints)
 
-עבור כל אילוץ שבקובץ `Constraints.sql` יש:
-
-1. **תיאור השינוי בעברית** שהתווסף באמצעות `ALTER TABLE`.
+**:1**
+**הפיכת COUNTRY בUSERS ל NOT NULL** 
 2. **צילום מסך של הרצת הפקודה**.
 
 ![constrain 1](constrain_1.png)
