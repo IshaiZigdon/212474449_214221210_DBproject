@@ -120,7 +120,9 @@
 
 **DELETE**
 
-**1**
+
+**:1**
+
 **צילום מסך של מצב בסיס הנתונים לפני השינוי**
 
 ![Watch history before delete](screenshots/history_before_del.png)
@@ -133,7 +135,9 @@
 
 ![Watch history after delete](screenshots/history_after_del.png)
 
-**2**
+
+**:2**
+
 **צילום מסך של מצב בסיס הנתונים לפני השינוי**
 
 ![Watch List before delete](screenshots/watchlist_before_del.png)
@@ -146,7 +150,9 @@
 
 ![Watch List after delete](screenshots/watchlist_after_del.png)
 
-**3**
+
+**:3**
+
 **צילום מסך של מצב בסיס הנתונים לפני השינוי**
 
 ![Profile Prefrences before delete](screenshots/pp_before_del.png)
@@ -162,7 +168,9 @@
 
 **UPDATE**
 
-**1**
+
+**:1**
+
 **צילום מסך של מצב בסיס הנתונים לפני השינוי** 
 
 ![active accounts before delete](screenshots/active_b_upt.png)
@@ -175,7 +183,9 @@
 
 ![Active Accounts after delete](screenshots/active_a_upd.png)
 
-**2**
+
+**:2**
+
 **צילום מסך של מצב בסיס הנתונים לפני השינוי** 
 
 ![Basic Subscriptions before delete](screenshots/basic_b_upd.png)
@@ -189,7 +199,8 @@
 ![Basic Subscriptions after delete](screenshots/basic_a_upd.png)
 
 
-**3**
+**:3**
+
 **צילום מסך של מצב בסיס הנתונים לפני השינוי** 
 
 ![Lower case content before delete](screenshots/lower_b_upd.png)
