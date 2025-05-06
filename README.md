@@ -223,7 +223,7 @@
 
 **2:**
    
-**הוספת בדיקה ש age_rating ב profiles האו בין 0 ל18** 
+**הוספת בדיקה ש age_rating ב profiles הוא בין 0 ל18** 
    ![constrain 2](screenshots/constrain_2.png)
 
 **3:**
@@ -233,13 +233,23 @@
 
 
 ### דוגמאות ROLLBACK ו-COMMIT
-עבור הדוגמאות שבקובץ `RollbackCommit.sql` יש להראות:
-1. **תיאור קצר בעברית (ROLLBACK):** ביטול כל השינויים בטרנזקציה וחזרה למצב הקודם.
-2. **תיאור קצר בעברית (COMMIT):** שמירת כל השינויים שבוצעו בטרנזקציה לצמיתות.
-3. **צילום מצב בסיס הנתונים לפני הפעולה:**  
+
+1. **ROLLBACK:** 
+הפכנו את המדינה של המשתמש עם ID=5 ממקסיקו ל unknown ואחרי זה עשינו rollback.
+
+1. **צילום מצב בסיס הנתונים לפני הפעולה:**  
    ![Before Transaction](screenshots/rollback_1.png)  
-4. **צילום מסך של הרצת הפקודה:**  
+2. **צילום מסך של הרצת הפקודה:**  
    ![Transaction Run](screenshots/rollback_2.png)  
-5. **צילום מצב בסיס הנתונים אחרי הפעולה:**  
+3. **צילום מצב בסיס הנתונים אחרי ROLLBACK:**  
    ![After Transaction](screenshots/rollback_3.png)
 
+2. **COMMIT:**
+הפכנו את המדינה של המשתמש עם ID=5 ממקסיקו ל Israel ואחרי זה עשינו commit
+
+1. **צילום מצב בסיס הנתונים לפני הפעולה:**  
+   ![Before Transaction](screenshots/commit_b.png)  
+2. **צילום מסך של הרצת הפקודה:**  
+   ![Transaction Run](screenshots/commit_d.png)  
+3. **צילום מצב בסיס הנתונים אחרי COMMIT:**  
+   ![After Transaction](screenshots/commit_a.png)
