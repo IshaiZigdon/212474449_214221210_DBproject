@@ -225,7 +225,7 @@
    ![constrain 2](screenshots/constrain_2.png)
    
 **ערך ברירת מחדל ל status ב subsciptions** 
-   ![constrain 3](screenshots/constrain_3.png)
+   ![constrain 3](screenshots/const_3.png)
 
 
 ### דוגמאות ROLLBACK ו-COMMIT
