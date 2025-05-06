@@ -218,13 +218,14 @@
 
 **:1**
 **הפיכת COUNTRY בUSERS ל NOT NULL** 
-2. **צילום מסך של הרצת הפקודה**.
 
-![constrain 1](constrain_1.png)
-![constrain 2](constrain_2.png)
-3. **ניסיון ליצירת נתון שסותר את האילוץ** וצילום השגיאה המתקבלת.
-
-![constrain 3](constrain_3.png)
+   ![constrain 1](constrain_1.png)
+   
+**הוספת בדיקה ש age_rating ב profiles האו בין 0 ל18** 
+   ![constrain 2](constrain_2.png)
+   
+**ערך ברירת מחדל ל status ב subsciptions** 
+   ![constrain 3](constrain_3.png)
 
 
 ### דוגמאות ROLLBACK ו-COMMIT
