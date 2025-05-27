@@ -268,20 +268,20 @@
 
 1. **DSD של האגף החדש**  
 
-![new DSD](שלב ג/DSDnew.png)
+![new DSD](שלב_ג/DSDnew.png)
 
 2. **ERD של האגף החדש**  
 
-![new ERD](שלב ג/ERDnew.png)
+![new ERD](שלב_ג/ERDnew.png)
 
 
  
 3. **ה- ERD המשותף**  
   כל מה שהיינו צריכים לעשות זה למחוק את טבלת ה content שהיה לנו ולחבר את כל מי שהיה קשור אליו ל title החדש.
 
-![the combined ERD](שלב ג/ERDco.png)
+![the combined ERD](שלב_ג/ERDco.png)
 
 4. **ה- DSD המשותף**  
   כל מה שהיינו צריכים לעשות זה למחוק את טבלת ה content שהיה לנו ולחבר את כל מי שהיה קשור אליו ל title החדש, ולשנות את ה content_id ל title_id.
 
-![the combined DSD](שלב ג/DSDco.png)
+![the combined DSD](שלב_ג/DSDco.png)
