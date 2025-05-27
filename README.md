@@ -289,9 +289,11 @@
 ### יצירת המבטים:
 
 **האגף שלנו:** מידע על כל משתמש וכמה פרופילים יש לו
+
 ![the combined DSD](screenshots/1view.png)
 
 **האגף החדש:** מידע על כל סרט\סדרה והז'אנרים שלה
+
 ![the combined DSD](screenshots/2view.png)
 
 
