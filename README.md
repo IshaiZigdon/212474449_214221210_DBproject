@@ -371,12 +371,58 @@ $$;
 צילום מסך לפני הרצת התוכנית:
 
 
+
 ![main_update_stats before](screenshots/main_update_stats_before.png)
 צילום מסך של הריצה ופלט ה־NOTICE:
+
 
 ![main_update_stats run](screenshots/main_update_stats_run.png)
 צילום מסך אחרי הריצה (טבלת Franchise):
 
+
 ![main_update_stats after](screenshots/main_update_stats_after.png)
+
+2. main_awards_and_list.sql
+תיאור מילולי:
+הרצה של פרוצדורה ופונקציה עם Cursor:
+
+add_award(...) להוספת פרס חדש לטבלת Award.
+
+list_titles_by_genre(p_genre_id) לפתיחת REFCURSOR והצגת 10 רשומות.
+
+```sql
+DO $$
+DECLARE
+  cur REFCURSOR;
+  rec RECORD;
+BEGIN
+  -- הוספת פרס חדש
+  CALL add_award('Best Visuals', 'Critics Guild', 'Won', 12);
+
+  -- קבלת עכבר (cursor) לכותרות בז'אנר 3
+  cur := list_titles_by_genre(3);
+
+  -- הצגת 10 שורות ראשונות
+  FOR i IN 1..10 LOOP
+    FETCH cur INTO rec;
+    EXIT WHEN NOT FOUND;
+    RAISE NOTICE 'Title ID: %, Name: %', rec.title_id, rec.title_name;
+  END LOOP;
+  CLOSE cur;
+END
+$$;
+```
+
+צילום מסך של ההוספה והריצה:
+
+
+
+
+![main_awards run](screenshots/main_awards_run.png)
+צילום מסך של הפלט (RAISE NOTICE):
+
+
+
+![main_awards output](screenshots/main_awards_output.png)
 
 
