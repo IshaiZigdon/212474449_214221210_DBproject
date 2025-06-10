@@ -440,16 +440,74 @@ NOTICE: Award Best Visuals by Critics Guild for title 12 added.
 NOTICE: Title ID: 919, Name: 100 ways...
 – השורה הראשונה מתוך הלולאה שמשכה את תוצאות ה־REFCURSOR של list_titles_by_genre(3).
 
+
 כל הודעה כזו מציינת כותרת אחת בז’אנר 3. יהיו כ־10 הודעות כאלה (את 10 ה־FETCH הראשונות), בהתאם לאורך ה־cursor.
 
+
 שאר הודעות ה־Title ID:
+
 – המשך הלולאה. כל אחת מציגה את title_id ו־title_name של כל רשומה שנמשכה (עד 10).
 
 
-### צילום מסך של הפלט (RAISE NOTICE):
+# פונקציות (Functions)
+### 1. `get_title_avg_rating(p_title_id INT) RETURNS NUMERIC`
+תיאור מילולי:
+פונקציה המקבלת Title_ID ומחזירה את ממוצע כל הדירוגים ב־watch_history עבור כותרת זו (NULL → 0).
+```sql
+CREATE OR REPLACE FUNCTION get_title_avg_rating(p_title_id INT)
+  RETURNS NUMERIC AS
+$$
+DECLARE
+  v_avg NUMERIC;
+BEGIN
+  SELECT AVG(rating) INTO v_avg
+    FROM watch_history
+   WHERE title_id = p_title_id
+     AND rating IS NOT NULL;
+  IF v_avg IS NULL THEN
+    RETURN 0;
+  END IF;
+  RETURN ROUND(v_avg,2);
+EXCEPTION
+  WHEN OTHERS THEN
+    RAISE NOTICE 'Error computing avg rating for title %: %',
+                 p_title_id, SQLERRM;
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+### צילום מסך של קריאה לפונקציה ופלט:
 
 
+![get_title_avg_rating run](screenshots/get_title_avg_rating_run.png)
 
-![main_awards output](screenshots/main_awards_output.png)
+
+### `2. list_titles_by_genre(p_genre_id INT) RETURNS REFCURSOR`
+תיאור מילולי:
+פונקציה פותחת REFCURSOR ומחזירה רשימת כותרות (title_id, title_name) עבור ז’אנר נתון.
+
+```sql
+CREATE OR REPLACE FUNCTION list_titles_by_genre(p_genre_id INT)
+  RETURNS REFCURSOR AS
+$$
+DECLARE
+  cur REFCURSOR;
+BEGIN
+  OPEN cur FOR
+    SELECT t.title_id, t.title_name
+      FROM Title t
+      JOIN MovieGenre mg ON t.title_id = mg.title_id
+     WHERE mg.genre_id = p_genre_id
+     ORDER BY t.title_name;
+  RETURN cur;
+END;
+$$ LANGUAGE plpgsql;
+```
+### צילום מסך של בדיקת ה־REFCURSOR והריצה:
+
+
+![list_titles_by_genre run](screenshots/list_titles_by_genre_run.png)
+
 
 
