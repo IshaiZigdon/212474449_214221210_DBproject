@@ -510,4 +510,153 @@ $$ LANGUAGE plpgsql;
 ![list_titles_by_genre run](screenshots/list_titles_by_genre_run.png)
 
 
+# פרוצדורות (Procedures)
+### 1. `update_franchise_count(p_franchise_id INT)`
+תיאור מילולי:
+פרוצדורה שמעדכנת את עמודת Number_of_titles בטבלת Franchise לפי ספירת שורות בטבלת Belongs_to עבור הזיכיון הנתון.
+
+```sql
+CREATE OR REPLACE PROCEDURE update_franchise_count(p_franchise_id INT)
+AS $$
+BEGIN
+  UPDATE Franchise
+     SET Number_of_titles = (
+       SELECT COUNT(*) FROM Belongs_to
+        WHERE franchise_id = p_franchise_id
+     )
+   WHERE Franchise_ID = p_franchise_id;
+  IF NOT FOUND THEN
+    RAISE NOTICE 'No franchise % found.', p_franchise_id;
+  END IF;
+END;
+$$ LANGUAGE plpgsql;
+```
+### צילום מסך לפני העדכון (טבלת Franchise):
+
+
+
+![update_franchise_count before](screenshots/update_franchise_count_before.png)
+### צילום מסך של קריאה לפרוצדורה:
+
+
+
+![update_franchise_count run](screenshots/update_franchise_count_run.png)
+### צילום מסך אחרי העדכון:
+
+
+
+![update_franchise_count after](screenshots/update_franchise_count_after.png)
+
+
+### 2. `add_award(p_award_name, p_given_by, p_result, p_title_id)`
+תיאור מילולי:
+פרוצדורה מוסיפה רשומת Award חדשה אם אינה קיימת, אחרת מדפיסה הודעת NOTICE.
+
+```sql
+CREATE OR REPLACE PROCEDURE add_award(
+  p_award_name VARCHAR,
+  p_given_by   VARCHAR,
+  p_result     VARCHAR,
+  p_title_id   INT
+)
+AS $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM Award
+     WHERE award_name = p_award_name
+       AND given_by   = p_given_by
+       AND title_id   = p_title_id
+  ) THEN
+    RAISE NOTICE 'Award % by % for title % already exists.',
+                 p_award_name, p_given_by, p_title_id;
+    RETURN;
+  END IF;
+  INSERT INTO Award (award_name, given_by, result, title_id)
+  VALUES (p_award_name, p_given_by, p_result, p_title_id);
+END;
+$$ LANGUAGE plpgsql;
+```
+
+### צילום מסך של קריאה לפרוצדורה (הוספת פרס):
+
+markdown
+Copy
+![add_award run](screenshots/add_award_run.png)
+# טריגרים (Triggers)
+### 1. `trig_increment_season_episodes`
+
+תיאור מילולי:
+טריגר המגדיל אוטומטית את עמודת Number_of_episodes בטבלת Season בכל פעם שמתווסף רשומת Episode.
+
+```sql
+CREATE OR REPLACE FUNCTION fn_inc_season_eps()
+  RETURNS TRIGGER AS
+$$
+BEGIN
+  UPDATE Season
+     SET Number_of_episodes = Number_of_episodes + 1
+   WHERE Title_ID      = NEW.Title_ID
+     AND Season_Number = NEW.Season_Number;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trig_increment_season_episodes
+  AFTER INSERT ON Episode
+  FOR EACH ROW
+  EXECUTE FUNCTION fn_inc_season_eps();
+```
+### צילום מסך של הוספת Episode והרצת הטריגר:
+
+
+
+![trig_inc_eps run](screenshots/trig_inc_eps_run.png)
+### צילום מסך של הטבלה Season לפני ואחרי:
+
+
+
+
+![trig_inc_eps before](screenshots/trig_inc_eps_before.png)
+![trig_inc_eps after](screenshots/trig_inc_eps_after.png)
+
+
+### 2. `trig_activate_season`
+תיאור מילולי:
+טריגר שמוודא שרק עונה אחת בכל סדרה (Title_ID) מסומנת כ־Ongoing – בכל הוספה או עדכון ל־current_Status = 'Ongoing', שאר העונות נוסמכות כ־Completed.
+
+```sql
+CREATE OR REPLACE FUNCTION fn_activate_season()
+  RETURNS TRIGGER AS
+$$
+BEGIN
+  IF NEW.current_Status = 'Ongoing' THEN
+    UPDATE Season
+       SET current_Status = 'Completed'
+     WHERE Title_ID      = NEW.Title_ID
+       AND Season_Number <> NEW.Season_Number;
+  END IF;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trig_activate_season ON Season;
+CREATE TRIGGER trig_activate_season
+  AFTER INSERT OR UPDATE OF current_Status ON Season
+  FOR EACH ROW
+  WHEN (NEW.current_Status = 'Ongoing')
+  EXECUTE FUNCTION fn_activate_season();
+```
+
+### צילום מסך של INSERT/UPDATE וקבצי הטריגר:
+
+
+
+![trig_activate_season run](screenshots/trig_activate_season_run.png)
+### צילום מסך של מצב טבלת Season לפני ואחרי:
+
+
+
+![trig_activate_season before](screenshots/trig_activate_season_before.png)
+![trig_activate_season after](screenshots/trig_activate_season_after.png)
+
 
