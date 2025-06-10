@@ -371,7 +371,7 @@ $$;
 
 
 
-# צילום מסך של הריצה ופלט ה־NOTICE:
+### צילום מסך של הריצה ופלט ה־NOTICE:
 
 ![main_update_stats before](screenshots/main_update_stats_before.png)
 
@@ -387,7 +387,7 @@ $$;
 
 
 
-# צילום מסך אחרי הריצה (טבלת Franchise):
+### צילום מסך אחרי הריצה (טבלת Franchise):
 
 
 ![main_update_stats after](screenshots/main_update_stats_after.png)
@@ -425,13 +425,28 @@ END
 $$;
 ```
 
-צילום מסך של ההוספה והריצה:
+### צילום מסך של ההוספה והריצה:
 
 
 
 
 ![main_awards run](screenshots/main_awards_run.png)
-צילום מסך של הפלט (RAISE NOTICE):
+
+הסבר על מה שרואים:
+NOTICE: Award Best Visuals by Critics Guild for title 12 added.
+– זה הנושא הראשון ש־add_award מוציא:
+מה שמודיע שהפרוצדורה יודעת לטפל בכפילויות ומשאירה הכל תקין.
+
+NOTICE: Title ID: 919, Name: 100 ways...
+– השורה הראשונה מתוך הלולאה שמשכה את תוצאות ה־REFCURSOR של list_titles_by_genre(3).
+
+כל הודעה כזו מציינת כותרת אחת בז’אנר 3. יהיו כ־10 הודעות כאלה (את 10 ה־FETCH הראשונות), בהתאם לאורך ה־cursor.
+
+שאר הודעות ה־Title ID:
+– המשך הלולאה. כל אחת מציגה את title_id ו־title_name של כל רשומה שנמשכה (עד 10).
+
+
+### צילום מסך של הפלט (RAISE NOTICE):
 
 
 
