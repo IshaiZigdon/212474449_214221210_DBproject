@@ -382,7 +382,7 @@ $$;
 
 ![main_update_stats after](screenshots/main_update_stats_after.png)
 
-2. main_awards_and_list.sql
+### 2. `main_awards_and_list.sql`
 תיאור מילולי:
 הרצה של פרוצדורה ופונקציה עם Cursor:
 
