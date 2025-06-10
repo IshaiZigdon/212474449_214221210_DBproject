@@ -365,5 +365,17 @@ BEGIN
                rnd_fid,
                (SELECT Number_of_titles FROM Franchise WHERE Franchise_ID = rnd_fid);
 END
-$$;
+$$;```
+
+צילום מסך לפני הרצת התוכנית:
+
+
+![main_update_stats before](screenshots/main_update_stats_before.png)
+צילום מסך של הריצה ופלט ה־NOTICE:
+
+![main_update_stats run](screenshots/main_update_stats_run.png)
+צילום מסך אחרי הריצה (טבלת Franchise):
+
+![main_update_stats after](screenshots/main_update_stats_after.png)
+
 
