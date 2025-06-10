@@ -365,7 +365,8 @@ BEGIN
                rnd_fid,
                (SELECT Number_of_titles FROM Franchise WHERE Franchise_ID = rnd_fid);
 END
-$$;```
+$$;
+```
 
 צילום מסך לפני הרצת התוכנית:
 
