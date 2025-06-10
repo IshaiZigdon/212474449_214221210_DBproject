@@ -357,11 +357,6 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-### צילום מסך של קריאה לפונקציה ופלט:
-
-
-![get_title_avg_rating run](screenshots/get_title_avg_rating_run.png)
-
 
 ### `2. list_titles_by_genre(p_genre_id INT) RETURNS REFCURSOR`
 תיאור מילולי:
@@ -384,10 +379,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 ```
-### צילום מסך של בדיקת ה־REFCURSOR והריצה:
-
-
-![list_titles_by_genre run](screenshots/list_titles_by_genre_run.png)
 
 
 ## פרוצדורות (Procedures)
@@ -411,21 +402,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 ```
-### צילום מסך לפני העדכון (טבלת Franchise):
 
-
-
-![update_franchise_count before](screenshots/update_franchise_count_before.png)
-### צילום מסך של קריאה לפרוצדורה:
-
-
-
-![update_franchise_count run](screenshots/update_franchise_count_run.png)
-### צילום מסך אחרי העדכון:
-
-
-
-![update_franchise_count after](screenshots/update_franchise_count_after.png)
 
 
 ### 2. `add_award(p_award_name, p_given_by, p_result, p_title_id)`
@@ -457,11 +434,6 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-### צילום מסך של קריאה לפרוצדורה (הוספת פרס):
-
-markdown
-Copy
-![add_award run](screenshots/add_award_run.png)
 ## טריגרים (Triggers)
 ### 1. `trig_increment_season_episodes`
 
@@ -489,56 +461,81 @@ CREATE TRIGGER trig_increment_season_episodes
 ### צילום מסך של הוספת Episode והרצת הטריגר:
 
 
+![trig_inc_eps run](screenshots/triger1_ex.png)
 
-![trig_inc_eps run](screenshots/trig_inc_eps_run.png)
 ### צילום מסך של הטבלה Season לפני ואחרי:
 
 
 
-
-![trig_inc_eps before](screenshots/trig_inc_eps_before.png)
-![trig_inc_eps after](screenshots/trig_inc_eps_after.png)
+![trig_inc_eps before](screenshots/triger1_before.png)
 
 
-### 2. `trig_activate_season`
+![trig_inc_eps after](screenshots/triger1_after.png)
+
+
+### 2. `trig_create_default_profil`
 תיאור מילולי:
-טריגר שמוודא שרק עונה אחת בכל סדרה (Title_ID) מסומנת כ־Ongoing – בכל הוספה או עדכון ל־current_Status = 'Ongoing', שאר העונות נוסמכות כ־Completed.
+כל פעם שנכנסת שורה חדשה לטבלת subscriptions, יתווסף אוטומטית פרופיל ברירת מחדל בטבלת profiles המשויך ל־email של המנוי הזה.
 
 ```sql
-CREATE OR REPLACE FUNCTION fn_activate_season()
-  RETURNS TRIGGER AS
-$$
+-- 1) פונקציית הטריגר: יצירת פרופיל ברירת מחדל
+CREATE OR REPLACE FUNCTION fn_create_default_profile()
+  RETURNS TRIGGER
+AS $$
+DECLARE
+  v_new_profile_id INT;
 BEGIN
-  IF NEW.current_Status = 'Ongoing' THEN
-    UPDATE Season
-       SET current_Status = 'Completed'
-     WHERE Title_ID      = NEW.Title_ID
-       AND Season_Number <> NEW.Season_Number;
-  END IF;
+  -- חשב profile_id חדש כ־MAX+1
+  SELECT COALESCE(MAX(profile_id),0) + 1
+    INTO v_new_profile_id
+  FROM profiles;
+
+  -- הוסף פרופיל ברירת מחדל
+  INSERT INTO profiles (
+    profile_id,
+    name,
+    age_rating,
+    created_at,
+    email
+  ) VALUES (
+    v_new_profile_id,
+    'Default',
+    0,
+    CURRENT_DATE,
+    NEW.email
+  );
+
   RETURN NEW;
+EXCEPTION
+  WHEN unique_violation THEN
+    -- במידה וכבר קיים פרופיל זהה, נתעלם ולא נזרוק שגיאה
+    RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS trig_activate_season ON Season;
-CREATE TRIGGER trig_activate_season
-  AFTER INSERT OR UPDATE OF current_Status ON Season
+-- 2) יצירת הטריגר על טבלת subscriptions
+DROP TRIGGER IF EXISTS trig_create_default_profile ON subscriptions;
+
+CREATE TRIGGER trig_create_default_profile
+  AFTER INSERT ON subscriptions
   FOR EACH ROW
-  WHEN (NEW.current_Status = 'Ongoing')
-  EXECUTE FUNCTION fn_activate_season();
+  EXECUTE FUNCTION fn_create_default_profile();
+
 ```
 
-### צילום מסך של INSERT/UPDATE וקבצי הטריגר:
+### צילום מסך של הוספת Subscriber והרצת הטריגר:
+
+
+![trig_inc_eps run](screenshots/trigger2_ex.png)
+
+### צילום מסך של הטבלה Profiles לפני ואחרי:
 
 
 
-![trig_activate_season run](screenshots/trig_activate_season_run.png)
-### צילום מסך של מצב טבלת Season לפני ואחרי:
+![trig_inc_eps before](screenshots/trigger2_before.png)
 
 
-
-![trig_activate_season before](screenshots/trig_activate_season_before.png)
-![trig_activate_season after](screenshots/trig_activate_season_after.png)
-
+![trig_inc_eps after](screenshots/trigger2_after.png)
 ## תוכניות ראשיות (Main Scripts)
 
 ### 1. `main_update_stats.sql`
