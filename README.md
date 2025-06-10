@@ -322,3 +322,48 @@
    - **תיאור:** מביאה לכל ז'אנר כמה תוכניות יש לו. שימוש במידע מאפשר לראות באיזה ז'אנרים חסר תכנים.
 
 ![query 2](screenshots/theirs2.png)
+
+# דוח הפרויקט – שלב ד׳
+
+להלן תיאור מלא של כל תוכנית PL/pgSQL, כולל המקום להוסיף צילומי מסך.
+
+---
+
+### תוכניות ראשיות (Main Scripts)
+
+### 1. `main_update_stats.sql`
+**תיאור מילולי:**  
+הרצה של פונקציה ופרוצדורה מרכזיות:  
+1. קריאה ל־`get_title_avg_rating(10)` וחישוב ממוצע דירוג עבור הכותרת עם `Title_ID = 10`.  
+2. קריאה ל־`update_franchise_count(<rnd_fid>)` לעדכון `Number_of_titles` לזיכיון אקראי.
+
+```sql
+DO $$
+DECLARE
+  avg_rating NUMERIC;
+  rnd_fid    INT;
+BEGIN
+  -- חישוב ממוצע דירוג לכותרת 10
+  avg_rating := get_title_avg_rating(10);
+  RAISE NOTICE 'Average rating for Title 10: %', avg_rating;
+
+  -- בחירת זיכיון אקראי
+  SELECT Franchise_ID INTO rnd_fid
+    FROM Franchise
+    ORDER BY RANDOM() LIMIT 1;
+
+  -- הדפסת נתוני הזיכיון לפני העדכון
+  RAISE NOTICE 'Before update: Franchise % has % titles',
+               rnd_fid,
+               (SELECT Number_of_titles FROM Franchise WHERE Franchise_ID = rnd_fid);
+
+  -- קריאה לפרוצדורה לעדכון
+  CALL update_franchise_count(rnd_fid);
+
+  -- הדפסת הנתונים אחרי העדכון
+  RAISE NOTICE 'After update: Franchise % has % titles',
+               rnd_fid,
+               (SELECT Number_of_titles FROM Franchise WHERE Franchise_ID = rnd_fid);
+END
+$$;
+
