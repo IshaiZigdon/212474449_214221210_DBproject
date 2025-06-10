@@ -371,19 +371,23 @@ $$;
 
 
 
-צילום מסך של הריצה ופלט ה־NOTICE:
+# צילום מסך של הריצה ופלט ה־NOTICE:
 
 ![main_update_stats before](screenshots/main_update_stats_before.png)
 
 הסבר על מה שרואים:
 
 הNOTICE הראשון שהציג את התוצאה שהוחזרה מהפונקציה get_title_avg_rating(10). במקרה הזה הממוצע שבחרנו הוא 5.36.
+
 הNOTICE השני שמציג את הערך הקודם בשדה Number_of_titles של הזיכיון (במקרה זה זיכיון מס׳ 6). פה רואים שהעמודה עוד לא תואמה למספר האמיתי של Belongs_to.
+
 הNOTICE השלישי שמציג את הTitle החדש שייכנס תחת אותו franchise.
+
 הNOTICE הרביעי שמציג את הערך החדש בשדה Number_of_titles לאחר הקריאה לפרוצדורה update_franchise_count.
 
 
-צילום מסך אחרי הריצה (טבלת Franchise):
+
+# צילום מסך אחרי הריצה (טבלת Franchise):
 
 
 ![main_update_stats after](screenshots/main_update_stats_after.png)
